@@ -1,10 +1,12 @@
 package homework4;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertEquals;
+
 
 class CustomIntegerArrayListTest {
 
@@ -38,7 +40,41 @@ class CustomIntegerArrayListTest {
 
         assertEquals(lst4, arr4.getArrayList());
 
-        // TODO write at least 3 additional test cases
+        //create a new empty CustomIntegerArrayList
+        CustomIntegerArrayList arr5 = new CustomIntegerArrayList();
+        arr1.add(3);
+        arr1.add(0, 50);
+        arr1.add(1, 60);
+
+        ArrayList<Integer> lst5 = new ArrayList<Integer>();
+        lst1.add(3);
+        lst1.add(0, 50);
+        lst1.add(1, 60);
+        assertEquals(lst5, arr5.getArrayList());
+
+        //create a new empty CustomIntegerArrayList
+        CustomIntegerArrayList arr6 = new CustomIntegerArrayList();
+        arr1.add(30);
+        arr1.add(0, 5);
+        arr1.add(1, 6);
+
+        ArrayList<Integer> lst6 = new ArrayList<Integer>();
+        lst1.add(30);
+        lst1.add(0, 5);
+        lst1.add(1, 6);
+        assertEquals(lst5, arr5.getArrayList());
+
+        //create a new empty CustomIntegerArrayList
+        CustomIntegerArrayList arr7 = new CustomIntegerArrayList();
+        arr1.add(2);
+        arr1.add(0, 6);
+        arr1.add(1, 4);
+
+        ArrayList<Integer> lst7 = new ArrayList<Integer>();
+        lst1.add(2);
+        lst1.add(0, 6);
+        lst1.add(1, 4);
+        assertEquals(lst5, arr5.getArrayList());
     }
 
     @Test
@@ -53,11 +89,20 @@ class CustomIntegerArrayListTest {
         lst1.add(0, 5);
         lst1.add(1, 5);
 
-        assertEquals(lst1.get(0), arr1.get(0));
-        assertEquals(lst1.get(1), arr1.get(1));
-        assertEquals(lst1.get(2), arr1.get(2));
+        assertEquals((Integer)lst1.get(0), (Integer)arr1.get(0));
+        assertEquals((Integer)lst1.get(1), (Integer)arr1.get(1));
+        assertEquals((Integer)lst1.get(2), (Integer)arr1.get(2));
 
-        // TODO write at least 3 additional test cases
+        arr1.add(5);
+        lst1.add(5);
+        assertEquals((Integer)lst1.get(3), (Integer)arr1.get(3));
+
+        arr1.add(6);
+        arr1.add(7);
+        lst1.add(6);
+        lst1.add(7);
+        assertEquals((Integer)lst1.get(5), (Integer)arr1.get(5));
+        assertEquals((Integer)lst1.get(4), (Integer)arr1.get(4));
     }
 
     @Test
@@ -73,11 +118,21 @@ class CustomIntegerArrayListTest {
         lst1.add(3);
         lst1.add(4);
 
-        assertEquals(lst1.get(0), arr1.get(0));
-        assertEquals(lst1.get(1), arr1.get(1));
-        assertEquals(lst1.get(2), arr1.get(2));
+        assertEquals((Integer)lst1.get(0), (Integer)arr1.get(0));
+        assertEquals((Integer)lst1.get(1), (Integer)arr1.get(1));
+        assertEquals((Integer)lst1.get(2), (Integer)arr1.get(2));
 
-        // TODO write at least 3 additional test cases
+        arr1.add(5);
+        lst1.add(5);
+        assertEquals((Integer)lst1.get(3), (Integer)arr1.get(3));
+
+        arr1.add(6);
+        lst1.add(6);
+        assertEquals((Integer)lst1.get(4), (Integer)arr1.get(4));
+
+        arr1.add(7);
+        lst1.add(7);
+        assertEquals((Integer)lst1.get(5), (Integer)arr1.get(5));
     }
 
     @Test
@@ -93,11 +148,21 @@ class CustomIntegerArrayListTest {
         lst1.add(0, 3);
         lst1.add(0, 4);
 
-        assertEquals(lst1.get(0), arr1.get(0));
-        assertEquals(lst1.get(1), arr1.get(1));
-        assertEquals(lst1.get(2), arr1.get(2));
+        assertEquals((Integer)lst1.get(0), (Integer)arr1.get(0));
+        assertEquals((Integer)lst1.get(1), (Integer)arr1.get(1));
+        assertEquals((Integer)lst1.get(2), (Integer)arr1.get(2));
 
-        // TODO write at least 3 additional test cases
+        arr1.add(1, 3);
+        lst1.add(1, 3);
+        assertEquals((Integer)lst1.get(3), (Integer)arr1.get(3));
+
+        arr1.add(2, 4);
+        lst1.add(2, 4);
+        assertEquals((Integer)lst1.get(4), (Integer)arr1.get(4));
+
+        arr1.add(3, 5);
+        lst1.add(3, 5);
+        assertEquals((Integer)lst1.get(5), (Integer)arr1.get(5));
     }
 
     @Test
@@ -117,9 +182,26 @@ class CustomIntegerArrayListTest {
         lst1.remove(0);
         lst1.remove(1);
 
-        assertEquals(lst1.get(0), arr1.get(0));
+        assertEquals((Integer)lst1.get(0), (Integer)arr1.get(0));
 
-        // TODO write at least 3 additional test cases
+        lst1.add(0, 3);
+        lst1.add(1, 4);
+        lst1.add(2, 5);
+        arr1.add(0,3);
+        arr1.add(1, 4);
+        arr1.add(2, 5);
+
+        lst1.remove(2);
+        arr1.remove(2);
+        assertEquals((Integer)lst1.get(2), (Integer)arr1.get(2));
+
+        lst1.remove(1);
+        arr1.remove(1);
+        assertEquals((Integer)lst1.get(1), (Integer)arr1.get(1));
+
+        lst1.remove(0);
+        arr1.remove(0);
+        assertEquals((Integer)lst1.get(0), (Integer)arr1.get(0));
     }
 
     @Test
@@ -138,10 +220,28 @@ class CustomIntegerArrayListTest {
         lst1.add(0, 2);
         lst1.add(0, 3);
         lst1.add(0, 4);
-
         assertEquals(lst1, arr1.getArrayList());
 
-        // TODO write at least 3 additional test cases
+        arr1.add(0, 4);
+        arr1.add(0, 4);
+        arr1.add(0, 4);
+        lst1.add(0, 4);
+        arr1.remove(2, 4);
+        assertEquals(lst1, arr1.getArrayList());
+
+        arr1.add(0, 7);
+        arr1.add(0, 7);
+        arr1.add(0, 7);
+        lst1.add(0, 7);
+        arr1.remove(2, 7);
+        assertEquals(lst1, arr1.getArrayList());
+
+        arr1.add(3, 8);
+        arr1.add(3, 8);
+        arr1.add(3, 8);
+        arr1.remove(3, 8);
+        assertEquals(lst1, arr1.getArrayList());
+
     }
 
     @Test
@@ -160,11 +260,10 @@ class CustomIntegerArrayListTest {
         lst1.add(3);
         lst1.add(4);
 
-        assertEquals(lst1.get(0), arr1.get(0));
-        assertEquals(lst1.get(1), arr1.get(1));
-        assertEquals(lst1.get(2), arr1.get(2));
+        assertEquals((Integer)lst1.get(0), (Integer)arr1.get(0));
+        assertEquals((Integer)lst1.get(1), (Integer)arr1.get(1));
+        assertEquals((Integer)lst1.get(2), (Integer)arr1.get(2));
 
-        // TODO write at least 3 additional test cases
     }
 
     @Test
@@ -187,8 +286,5 @@ class CustomIntegerArrayListTest {
         lst1.add(6);
 
         assertEquals(lst1, arr1.getArrayList());
-
-        // TODO write at least 3 additional test cases
     }
-
 }
